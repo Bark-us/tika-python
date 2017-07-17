@@ -596,7 +596,7 @@ def startServer(tikaServerJar, serverHost = ServerHost, port = Port, classpath=N
     else:
         classpath = tikaServerJar
 
-    cmd = 'java -cp {} org.apache.tika.server.TikaServerCli --port {} --host {} &'.format(classpath, port, host)
+    cmd = 'java -cp {} org.apache.tika.server.TikaServerCli --port {} --host {} &'.format(classpath, int(port), host)
     logFile = open(os.path.join(TikaServerLogFilePath, 'tika-server.log'), 'w')
     cmd = Popen(cmd , stdout= logFile, stderr = STDOUT, shell =True)
     time.sleep(5)
